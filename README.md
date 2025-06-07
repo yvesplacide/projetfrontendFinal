@@ -1,6 +1,6 @@
 # React + Vite
 
-lien du frontend deployé sur render : https://declarationdeperte.netlify.app/
+lien du frontend deployé sur Netlify : https://declarationdeperte.netlify.app/
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
