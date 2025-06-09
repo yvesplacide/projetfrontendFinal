@@ -284,7 +284,7 @@ function UserDashboard() {
                                             {declaration.photos.map((photo, index) => (
                                                 <img 
                                                     key={index} 
-                                                    src={`http://localhost:5000/uploads/${photo}`} 
+                                                    src={`https://backend-final-project-m0pk.onrender.com/uploads/${photo}`} 
                                                     alt={`Photo ${index + 1}`} 
                                                     className="declaration-photo"
                                                     onClick={(e) => {
@@ -390,7 +390,7 @@ function UserDashboard() {
                                     {selectedDeclaration.photos.map((photo, index) => (
                                         <img 
                                             key={index} 
-                                            src={`http://localhost:5000/uploads/${photo}`} 
+                                            src={`https://backend-final-project-m0pk.onrender.com/uploads/${photo}`} 
                                             alt={`Photo ${index + 1}`} 
                                             className="declaration-photo"
                                         />
@@ -425,7 +425,7 @@ function UserDashboard() {
                     <div className="photo-modal-content" onClick={e => e.stopPropagation()}>
                         <button className="modal-close-btn" onClick={closePhotoModal}>&times;</button>
                         <img 
-                            src={`http://localhost:5000/uploads/${selectedPhoto}`} 
+                            src={`https://backend-final-project-m0pk.onrender.com/uploads/${selectedPhoto}`} 
                             alt="Photo agrandie" 
                             className="enlarged-photo"
                         />
