@@ -276,7 +276,7 @@ function UserDashboard() {
                                                 <p><strong>Prénom:</strong> {declaration.personDetails?.firstName || 'Non spécifié'}</p>
                                             </>
                                         )}
-                                        <p><strong>Commissariat:</strong> {declaration.commissariat?.name || 'Non assigné'}</p>
+                                        <p><strong>Commissariat:</strong> {declaration.commissariat ? `${declaration.commissariat.name}${declaration.commissariat.city ? ` (${declaration.commissariat.city})` : ''}` : 'Non assigné'}</p>
                                     </div>
 
                                     {declaration.photos && declaration.photos.length > 0 && (
@@ -318,7 +318,7 @@ function UserDashboard() {
                             <p><strong>Date:</strong> {dayjs(selectedDeclaration.declarationDate).format('DD MMMM YYYY à HH:mm')}</p>
                             <p><strong>Lieu:</strong> {selectedDeclaration.location}</p>
                             <p><strong>Description:</strong> {selectedDeclaration.description}</p>
-                            <p><strong>Commissariat:</strong> {selectedDeclaration.commissariat?.name || 'Non assigné'}</p>
+                            <p><strong>Commissariat:</strong> {selectedDeclaration.commissariat ? `${selectedDeclaration.commissariat.name}${selectedDeclaration.commissariat.city ? ` (${selectedDeclaration.commissariat.city})` : ''}` : 'Non assigné'}</p>
 
                             {/* Boutons d'action selon le statut */}
                             <div className="modal-footer">
