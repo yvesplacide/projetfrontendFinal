@@ -26,7 +26,7 @@ function Header() {
         {/* Vous pouvez remplacer ceci par une image de logo si vous en avez une */}
         <Link to="/">Déclaration de Perte</Link>
       </div>
-      <nav>
+      <nav className="header-nav-flex">
         {user ? (
           <>
             {/* Liens spécifiques au rôle */}
@@ -49,7 +49,10 @@ function Header() {
           </>
         ) : (
           // Liens lorsque l'utilisateur n'est pas connecté
-          <Link to="/auth">Connexion / Inscription</Link>
+          <div style={{ display: 'flex', width: '100%' }}>
+            <div style={{ flexGrow: 1 }}></div>
+            <Link to="/auth">Connexion / Inscription</Link>
+          </div>
         )}
       </nav>
     </header>
