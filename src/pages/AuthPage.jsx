@@ -251,7 +251,7 @@ function AuthPage() {
                     <h2>{isRegistering ? "Inscription" : "Connexion"}</h2>
                     <p>
                         {isRegistering 
-                            ? `Créez votre compte - Étape ${registrationStep}/3`
+                            ? null
                             : "Connectez-vous à votre compte"
                         }
                     </p>

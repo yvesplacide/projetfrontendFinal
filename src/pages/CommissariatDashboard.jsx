@@ -304,7 +304,7 @@ function CommissariatDashboard() {
                                             <div className="declaration-info">
                                                 <h4>Déclaration de {declaration.declarationType === 'objet' ? 'perte d\'objet' : 'disparition de personne'}</h4>
                                                 <p><strong>N° de déclaration:</strong> {declaration.declarationNumber || declaration._id}</p>
-                                                <p><strong>Date de déclaration:</strong> {dayjs(declaration.declarationDate).format('DD/MM/YYYY à HH:mm')}</p>
+                                                <p><strong>Date de déclaration:</strong> {dayjs(declaration.createdAt).format('DD/MM/YYYY à HH:mm')}</p>
                                                 <p><strong>Statut:</strong> <span className={`status-${declaration.status.toLowerCase().replace(/\s/g, '-')}`}>{declaration.status}</span></p>
                                                 {declaration.status === 'Refusée' && declaration.rejectReason && (
                                                     <p><strong>Motif du refus:</strong> {declaration.rejectReason}</p>
@@ -313,17 +313,12 @@ function CommissariatDashboard() {
                                                 {declaration.declarationType === 'objet' && (
                                                     <>
                                                         <p><strong>Catégorie:</strong> {declaration.objectDetails?.objectCategory || 'Non spécifiée'}</p>
-                                                        <p><strong>Nom:</strong> {declaration.objectDetails?.objectName || 'Non spécifié'}</p>
-                                                        <p><strong>Marque:</strong> {declaration.objectDetails?.objectBrand || 'Non spécifiée'}</p>
                                                     </>
                                                 )}
                                                 {declaration.declarationType === 'personne' && (
                                                     <>
                                                         <p><strong>Nom:</strong> {declaration.personDetails?.lastName || 'Non spécifié'}</p>
                                                         <p><strong>Prénom:</strong> {declaration.personDetails?.firstName || 'Non spécifié'}</p>
-                                                        <p><strong>Date de naissance:</strong> {declaration.personDetails?.dateOfBirth ? dayjs(declaration.personDetails.dateOfBirth).format('DD MMMM YYYY') : 'Non spécifiée'}</p>
-                                                        {declaration.personDetails?.gender && <p><strong>Genre:</strong> {declaration.personDetails.gender}</p>}
-                                                        <p><strong>Dernier lieu vu:</strong> {declaration.personDetails?.lastSeenLocation || declaration.location}</p>
                                                     </>
                                                 )}
                                                 {declaration.status === 'Traité' && (
@@ -448,17 +443,12 @@ function CommissariatDashboard() {
                             {selectedDeclaration.declarationType === 'objet' && (
                                 <>
                                     <p><strong>Catégorie:</strong> {selectedDeclaration.objectDetails?.objectCategory || 'Non spécifiée'}</p>
-                                    <p><strong>Nom:</strong> {selectedDeclaration.objectDetails?.objectName || 'Non spécifié'}</p>
-                                    <p><strong>Marque:</strong> {selectedDeclaration.objectDetails?.objectBrand || 'Non spécifiée'}</p>
                                 </>
                             )}
                             {selectedDeclaration.declarationType === 'personne' && (
                                 <>
                                     <p><strong>Nom:</strong> {selectedDeclaration.personDetails?.lastName || 'Non spécifié'}</p>
                                     <p><strong>Prénom:</strong> {selectedDeclaration.personDetails?.firstName || 'Non spécifié'}</p>
-                                    <p><strong>Date de naissance:</strong> {selectedDeclaration.personDetails?.dateOfBirth ? dayjs(selectedDeclaration.personDetails.dateOfBirth).format('DD MMMM YYYY') : 'Non spécifiée'}</p>
-                                    {selectedDeclaration.personDetails?.gender && <p><strong>Genre:</strong> {selectedDeclaration.personDetails.gender}</p>}
-                                    <p><strong>Dernier lieu vu:</strong> {selectedDeclaration.personDetails?.lastSeenLocation || selectedDeclaration.location}</p>
                                 </>
                             )}
                             <p><strong>Statut:</strong> {selectedDeclaration.status}</p>
@@ -481,8 +471,6 @@ function CommissariatDashboard() {
                             <div className="details-section">
                                 <h4>Détails de la personne</h4>
                                 <p><strong>Nom:</strong> {selectedDeclaration.personDetails.lastName}, <strong>Prénom:</strong> {selectedDeclaration.personDetails.firstName}</p>
-                                <p><strong>Date de naissance:</strong> {dayjs(selectedDeclaration.personDetails.dateOfBirth).format('DD MMMM YYYY')}</p>
-                                {selectedDeclaration.personDetails.gender && <p><strong>Genre:</strong> {selectedDeclaration.personDetails.gender}</p>}
                                 {selectedDeclaration.personDetails.height && <p><strong>Taille:</strong> {selectedDeclaration.personDetails.height} cm</p>}
                                 {selectedDeclaration.personDetails.weight && <p><strong>Poids:</strong> {selectedDeclaration.personDetails.weight} kg</p>}
                                 {selectedDeclaration.personDetails.clothingDescription && <p><strong>Description des vêtements:</strong> {selectedDeclaration.personDetails.clothingDescription}</p>}

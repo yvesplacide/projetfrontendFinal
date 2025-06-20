@@ -22,6 +22,7 @@ function UserDashboard() {
     const [showDeclarationForm, setShowDeclarationForm] = useState(false);
     const [selectedPhoto, setSelectedPhoto] = useState(null);
     const [activeFilter, setActiveFilter] = useState('pending');
+    const [isDownloadingReceipt, setIsDownloadingReceipt] = useState(false);
 
     const fetchUserDeclarations = async () => {
         try {
@@ -93,6 +94,7 @@ function UserDashboard() {
 
     const handleDownloadReceipt = async (declaration) => {
         try {
+            setIsDownloadingReceipt(true);
             // Générer le PDF du récépissé
             const receiptElement = document.createElement('div');
             receiptElement.style.width = '210mm';
@@ -130,6 +132,8 @@ function UserDashboard() {
         } catch (error) {
             console.error('Erreur lors du téléchargement du récépissé:', error);
             toast.error('Erreur lors du téléchargement du récépissé');
+        } finally {
+            setIsDownloadingReceipt(false);
         }
     };
 
@@ -410,6 +414,7 @@ function UserDashboard() {
                                     <button 
                                         onClick={() => handleDownloadReceipt(selectedDeclaration)}
                                         className="btn primary-btn"
+                                        disabled={isDownloadingReceipt}
                                     >
                                         Télécharger le récépissé
                                     </button>
