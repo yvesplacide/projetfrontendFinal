@@ -225,21 +225,6 @@ function AuthPage() {
                     </div>
                 </div>
 
-                <div className="form-group">
-                    <label htmlFor="role">Rôle</label>
-                    <select
-                        id="role"
-                        value={selectedRole}
-                        onChange={e => setSelectedRole(e.target.value)}
-                        className="form-control"
-                    >
-                        <option value="">Sélectionner un rôle</option>
-                        <option value="user">Utilisateur</option>
-                        <option value="commissariat_agent">Agent de commissariat</option>
-                        <option value="admin">Administrateur</option>
-                    </select>
-                </div>
-
                 <div className="form-buttons">
                     <button type="submit" className="btn primary-btn" disabled={isLoading}>
                         {isLoading ? (
