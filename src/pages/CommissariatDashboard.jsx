@@ -304,6 +304,7 @@ function CommissariatDashboard() {
                                             <div className="declaration-info">
                                                 <h4>Déclaration de {declaration.declarationType === 'objet' ? 'perte d\'objet' : 'disparition de personne'}</h4>
                                                 <p><strong>N° de déclaration:</strong> {declaration.declarationNumber || declaration._id}</p>
+                                                <p><strong>Date de déclaration:</strong> {dayjs(declaration.declarationDate).format('DD/MM/YYYY à HH:mm')}</p>
                                                 <p><strong>Statut:</strong> <span className={`status-${declaration.status.toLowerCase().replace(/\s/g, '-')}`}>{declaration.status}</span></p>
                                                 {declaration.status === 'Refusée' && declaration.rejectReason && (
                                                     <p><strong>Motif du refus:</strong> {declaration.rejectReason}</p>

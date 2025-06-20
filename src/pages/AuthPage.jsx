@@ -16,6 +16,7 @@ function AuthPage() {
     const { register, handleSubmit, formState: { errors }, reset, watch } = useForm();
     const { user, login, register: authRegister } = useAuth(); // Renomme register du context en authRegister
     const navigate = useNavigate();
+    const [selectedRole, setSelectedRole] = useState('');
 
     // Réinitialiser le formulaire quand l'utilisateur se déconnecte
     useEffect(() => {
@@ -51,6 +52,12 @@ function AuthPage() {
 
     const onSubmit = async (data) => {
         try {
+            if (!isRegistering) {
+                if (!selectedRole) {
+                    toast.error('Veuillez sélectionner un rôle');
+                    return;
+                }
+            }
             if (isRegistering) {
                 if (registrationStep === 1 || registrationStep === 2) {
                     setRegistrationStep(registrationStep + 1);
@@ -78,7 +85,7 @@ function AuthPage() {
                 }
             } else {
                 setIsLoading(true);
-                const loggedInUser = await login(data.email, data.password);
+                const loggedInUser = await login(data.email, data.password, selectedRole);
                 if (loggedInUser) {
                     toast.success('Connexion réussie');
                     reset();
@@ -218,6 +225,21 @@ function AuthPage() {
                     </div>
                 </div>
 
+                <div className="form-group">
+                    <label htmlFor="role">Rôle</label>
+                    <select
+                        id="role"
+                        value={selectedRole}
+                        onChange={e => setSelectedRole(e.target.value)}
+                        className="form-control"
+                    >
+                        <option value="">Sélectionner un rôle</option>
+                        <option value="user">Utilisateur</option>
+                        <option value="commissariat_agent">Agent de commissariat</option>
+                        <option value="admin">Administrateur</option>
+                    </select>
+                </div>
+
                 <div className="form-buttons">
                     <button type="submit" className="btn primary-btn" disabled={isLoading}>
                         {isLoading ? (
@@ -269,7 +291,6 @@ function AuthPage() {
                                 />
                                 {errors.email && <span className="error-message">{errors.email.message}</span>}
                             </div>
-
                             <div className="form-group">
                                 <label htmlFor="password">Mot de passe</label>
                                 <input
@@ -286,7 +307,20 @@ function AuthPage() {
                                 />
                                 {errors.password && <span className="error-message">{errors.password.message}</span>}
                             </div>
-
+                            <div className="form-group">
+                                <label htmlFor="role">Rôle</label>
+                                <select
+                                    id="role"
+                                    value={selectedRole}
+                                    onChange={e => setSelectedRole(e.target.value)}
+                                    className="form-control"
+                                >
+                                    <option value="">Sélectionner un rôle</option>
+                                    <option value="user">Utilisateur</option>
+                                    <option value="commissariat_agent">Agent de commissariat</option>
+                                    <option value="admin">Administrateur</option>
+                                </select>
+                            </div>
                             <button type="submit" className="btn primary-btn" disabled={isLoading}>
                                 {isLoading ? (
                                     <span className="button-loader">

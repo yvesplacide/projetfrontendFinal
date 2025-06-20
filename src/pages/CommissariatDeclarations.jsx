@@ -487,12 +487,12 @@ function CommissariatDeclarations() {
                                         {selectedDeclaration.photos.map((photo, index) => (
                                             <img 
                                                 key={index} 
-                                                src={`http://localhost:5000/uploads/${photo}`} 
+                                                src={`https://backend-final-project-m0pk.onrender.com/uploads/${photo}`} 
                                                 alt={`Photo ${index + 1}`} 
                                                 className="declaration-photo"
                                                 onClick={(e) => {
                                                     e.stopPropagation();
-                                                    openPhotoModal(`http://localhost:5000/uploads/${photo}`, e);
+                                                    openPhotoModal(`https://backend-final-project-m0pk.onrender.com/uploads/${photo}`, e);
                                                 }}
                                             />
                                         ))}
