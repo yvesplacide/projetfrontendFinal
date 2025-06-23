@@ -249,12 +249,7 @@ function AuthPage() {
                 </div>
                 <div className="auth-header">
                     <h2>{isRegistering ? "Inscription" : "Connexion"}</h2>
-                    <p>
-                        {isRegistering 
-                            ? null
-                            : "Connectez-vous à votre compte"
-                        }
-                    </p>
+                    {isRegistering && <p></p>}
                 </div>
 
                 <form onSubmit={handleSubmit(onSubmit)}>

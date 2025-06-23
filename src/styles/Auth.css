@@ -358,20 +358,83 @@ html, body {
 }
 
 .register-card {
-    padding: 16px 18px;
-    max-width: 900px;
+    padding: 10px 8px;
+    max-width: 700px;
 }
 
-.form-group {
+.register-card .auth-header h2 {
+    font-size: 1.1rem;
+}
+
+.register-card .form-group label,
+.register-card .form-group input,
+.register-card .btn {
+    font-size: 0.85rem;
+}
+
+.register-card .form-group {
+    margin-bottom: 0.12rem;
+}
+
+.register-card .form-row,
+.register-card .form-row-3col {
+    gap: 6px;
+    margin-bottom: 0.12rem;
+}
+
+.register-card .btn.primary-btn {
+    padding: 6px 0;
+    font-size: 0.85rem;
+    min-height: 28px;
+}
+
+.register-card .auth-header {
+    margin-bottom: 0.2rem;
+    padding-top: 0.1rem;
+}
+
+.register-card .auth-footer {
+    margin-top: 4px;
+    padding-top: 2px;
+}
+
+.auth-card:not(.register-card) {
+    overflow-y: visible !important;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+.auth-card:not(.register-card) .auth-header h2 {
+    font-size: 1.2rem;
+}
+.auth-card:not(.register-card) .auth-header p {
+    font-size: 1rem;
+}
+.auth-card:not(.register-card) .form-group label,
+.auth-card:not(.register-card) .form-group input,
+.auth-card:not(.register-card) .btn {
+    font-size: 0.85rem;
+}
+.auth-card:not(.register-card) .btn.primary-btn {
+    padding: 4px 0;
+    font-size: 0.8rem;
+    min-height: 28px;
+}
+.auth-card:not(.register-card) .form-group {
+    margin-bottom: 0.15rem;
+}
+.auth-card:not(.register-card) .form-row {
+    gap: 8px;
+    margin-bottom: 0.15rem;
+}
+.auth-card:not(.register-card) .btn {
+    margin-top: 0.3rem;
     margin-bottom: 0.2rem;
 }
-
-.form-group input {
-    padding: 8px 10px;
-    font-size: 1rem;
+.auth-card:not(.register-card) .auth-header {
+    margin-bottom: 0.3rem;
+    padding-top: 0.1rem;
 }
-
-.btn {
-    padding: 10px;
-    font-size: 1rem;
+.auth-card:not(.register-card) .auth-footer {
+    margin-top: 4px;
+    padding-top: 2px;
 } 
