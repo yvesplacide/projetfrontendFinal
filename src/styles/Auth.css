@@ -26,6 +26,8 @@ html, body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: relative;
+    overflow: visible;
 }
 
 .auth-card:hover {
@@ -44,6 +46,11 @@ html, body {
     color: #2c3e50;
     font-size: 1.6rem;
     font-weight: 700;
+    position: relative;
+    z-index: 5;
+    color: #2c3e50;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .auth-header p {
@@ -193,22 +200,96 @@ html, body {
     100% { transform: rotate(360deg); }
 }
 
-/* Responsive design */
-@media (max-width: 480px) {
-    .auth-card {
-        padding: 8px 2px;
-        max-width: 99vw;
+/* Responsive design amélioré */
+@media (max-width: 768px) {
+    .auth-container {
+        padding: 10px;
     }
+    
+    .auth-card {
+        max-width: 95vw;
+        padding: 20px 15px;
+    }
+    
     .auth-header h2 {
+        font-size: 1.4rem;
+    }
+    
+    .form-group input,
+    .form-group select {
+        padding: 12px 14px;
         font-size: 1rem;
     }
-    .form-group input {
-        padding: 5px 6px;
+    
+    .btn {
+        padding: 12px 16px;
+        font-size: 1rem;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-container {
+        padding: 5px;
+    }
+    
+    .auth-card {
+        padding: 15px 10px;
+        max-width: 98vw;
+        border-radius: 12px;
+    }
+    
+    .auth-header h2 {
+        font-size: 1.2rem;
+    }
+    
+    .form-group input,
+    .form-group select {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .btn {
+        padding: 10px 14px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .auth-card {
+        padding: 12px 8px;
+        max-width: 99vw;
+    }
+    
+    .auth-header h2 {
+        font-size: 1.1rem;
+    }
+    
+    .form-group input,
+    .form-group select {
+        padding: 8px 10px;
         font-size: 0.85rem;
     }
+    
     .btn {
-        padding: 6px;
+        padding: 8px 12px;
         font-size: 0.85rem;
+    }
+}
+
+/* Correction pour éviter le débordement horizontal */
+.auth-container,
+.auth-card {
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+/* Optimisation pour les écrans tactiles */
+@media (hover: none) and (pointer: coarse) {
+    .form-group input,
+    .form-group select,
+    .btn {
+        min-height: 44px; /* Taille minimale recommandée pour les écrans tactiles */
     }
 }
 
@@ -315,12 +396,127 @@ html, body {
     width: 32px;
     height: 32px;
     border-radius: 50%;
+    z-index: 10;
+    text-decoration: none;
+    font-weight: 500;
 }
 
 .back-btn:hover {
     color: #ffd700;
     transform: translateX(-3px);
     background-color: rgba(255, 244, 91, 0.1);
+}
+
+/* Amélioration de la visibilité sur mobile */
+@media (max-width: 768px) {
+    .back-btn {
+        background-color: rgba(255, 244, 91, 0.15);
+        border: 2px solid rgba(255, 244, 91, 0.4);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        color: rgb(255, 244, 91);
+        font-weight: 600;
+    }
+    
+    .back-btn:hover {
+        background-color: rgba(255, 244, 91, 0.25);
+        border-color: rgba(255, 244, 91, 0.6);
+        transform: translateX(-2px);
+    }
+}
+
+/* Assurer que le titre soit toujours visible */
+.auth-header h2 {
+    position: relative;
+    z-index: 5;
+    color: #2c3e50;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Correction pour éviter que le contenu soit caché */
+.auth-card {
+    position: relative;
+    
+}
+.auth-card.register-card {
+    padding-top: 11rem;
+}
+/* Assurer que le formulaire soit bien positionné */
+form {
+    position: relative;
+    z-index: 1;
+}
+
+/* Correction pour mobile - éviter le chevauchement avec les champs */
+@media (max-width: 768px) {
+    .auth-card {
+        padding-top: 60px; /* Espace pour le bouton retour */
+    }
+    
+    .back-btn {
+        top: 15px;
+        left: 15px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    /* Ajuster l'espacement du header pour éviter le chevauchement */
+    .auth-header {
+        margin-top: 25px;
+        margin-bottom: 20px;
+    }
+    
+    .auth-header h2 {
+        font-size: 1.4rem;
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-card {
+        padding-top: 55px;
+    }
+    
+    .back-btn {
+        top: 12px;
+        left: 12px;
+        width: 36px;
+        height: 36px;
+        font-size: 1.1rem;
+    }
+    
+    .auth-header {
+        margin-top: 20px;
+        margin-bottom: 15px;
+    }
+    
+    .auth-header h2 {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .auth-card {
+        padding-top: 50px;
+    }
+    
+    .back-btn {
+        top: 10px;
+        left: 10px;
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+    }
+    
+    .auth-header {
+        margin-top: 18px;
+        margin-bottom: 12px;
+    }
+    
+    .auth-header h2 {
+        font-size: 1.2rem;
+    }
 }
 
 .back-home-link {
@@ -437,4 +633,86 @@ html, body {
 .auth-card:not(.register-card) .auth-footer {
     margin-top: 4px;
     padding-top: 2px;
+} 
+
+/* Responsive design pour la page d'inscription */
+@media (max-width: 768px) {
+    .register-card {
+        max-width: 95vw;
+        padding: 15px 10px;
+        padding-top: 60px; /* Espace supplémentaire pour le bouton retour */
+    }
+    
+    .register-card .form-row-3col {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .register-card .form-group {
+        margin-bottom: 0.15rem;
+    }
+    
+    .register-card .btn.primary-btn {
+        width: 100%;
+        padding: 12px 0;
+    }
+    
+    /* Ajuster l'espacement du premier champ pour éviter le chevauchement */
+    .register-card .form-row:first-child {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .register-card {
+        max-width: 98vw;
+        padding: 12px 8px;
+        padding-top: 55px;
+    }
+    
+    .register-card .auth-header h2 {
+        font-size: 1.1rem;
+    }
+    
+    .register-card .form-group input,
+    .register-card .form-group select {
+        padding: 8px 10px;
+        font-size: 0.85rem;
+    }
+    
+    .register-card .btn.primary-btn {
+        padding: 10px 0;
+        font-size: 0.85rem;
+    }
+    
+    .register-card .form-row:first-child {
+        margin-top: 8px;
+    }
+}
+
+@media (max-width: 360px) {
+    .register-card {
+        max-width: 99vw;
+        padding: 10px 6px;
+        padding-top: 50px;
+    }
+    
+    .register-card .auth-header h2 {
+        font-size: 1rem;
+    }
+    
+    .register-card .form-group input,
+    .register-card .form-group select {
+        padding: 6px 8px;
+        font-size: 0.8rem;
+    }
+    
+    .register-card .btn.primary-btn {
+        padding: 8px 0;
+        font-size: 0.8rem;
+    }
+    
+    .register-card .form-row:first-child {
+        margin-top: 6px;
+    }
 } 

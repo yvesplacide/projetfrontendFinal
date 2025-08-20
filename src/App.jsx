@@ -20,6 +20,7 @@ import ProtectedRoute from './utils/ProtectedRoute';
 
 import './index.css'; // Pour les styles globaux (ou App.css si vous en créez un)
 import './styles/DateInput.css';
+import './styles/responsive.css'; // Styles responsive globaux
 
 function App() {
   return (

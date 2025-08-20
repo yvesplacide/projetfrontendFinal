@@ -1,0 +1,205 @@
+/* Responsive Design Global - Corrections et améliorations */
+
+/* Correction des problèmes de débordement horizontal */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+/* Optimisation des images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Correction des tableaux */
+table {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    display: block;
+}
+
+/* Optimisation des formulaires */
+input, select, textarea, button {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Breakpoints globaux */
+@media (max-width: 1200px) {
+    .container {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    /* Ajustement des grilles */
+    .grid-2, .grid-3, .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    /* Grilles en colonne unique sur mobile */
+    .grid-2, .grid-3, .grid-4 {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Boutons pleine largeur sur mobile */
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    /* Navigation mobile */
+    .nav-menu {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .nav-menu a {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+    }
+    
+    /* Cartes et conteneurs */
+    .card, .container {
+        margin: 10px 0;
+        padding: 15px;
+    }
+    
+    /* Textes */
+    h1 { font-size: 1.8rem !important; }
+    h2 { font-size: 1.5rem !important; }
+    h3 { font-size: 1.3rem !important; }
+    h4 { font-size: 1.1rem !important; }
+    
+    /* Formulaires */
+    .form-group {
+        margin-bottom: 15px;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 12px;
+        font-size: 16px; /* Évite le zoom sur iOS */
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 5px;
+    }
+    
+    .card, .container {
+        padding: 10px;
+        margin: 5px 0;
+    }
+    
+    /* Textes plus petits sur très petits écrans */
+    h1 { font-size: 1.6rem !important; }
+    h2 { font-size: 1.4rem !important; }
+    h3 { font-size: 1.2rem !important; }
+    
+    /* Boutons plus compacts */
+    .btn {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+    
+    /* Formulaires compacts */
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 10px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 360px) {
+    .container {
+        padding: 0 3px;
+    }
+    
+    .card, .container {
+        padding: 8px;
+        margin: 3px 0;
+    }
+    
+    /* Textes très compacts */
+    h1 { font-size: 1.5rem !important; }
+    h2 { font-size: 1.3rem !important; }
+    h3 { font-size: 1.1rem !important; }
+    
+    /* Boutons très compacts */
+    .btn {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Optimisation pour les écrans tactiles */
+@media (hover: none) and (pointer: coarse) {
+    /* Taille minimale pour les éléments tactiles */
+    button, input, select, textarea, a {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Espacement entre les éléments tactiles */
+    .btn + .btn,
+    input + input,
+    .form-group + .form-group {
+        margin-top: 10px;
+    }
+}
+
+/* Correction pour les écrans haute densité */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    /* Amélioration de la netteté des bordures */
+    .card, .btn, input, select, textarea {
+        border-width: 0.5px;
+    }
+}
+
+/* Support pour l'orientation paysage sur mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .auth-container {
+        min-height: auto;
+        padding: 10px;
+    }
+    
+    .auth-card {
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+}
+
+/* Correction pour les navigateurs qui ne supportent pas CSS Grid */
+@supports not (display: grid) {
+    .grid-2, .grid-3, .grid-4 {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    
+    .grid-2 > *, .grid-3 > *, .grid-4 > * {
+        flex: 1 1 300px;
+        min-width: 0;
+    }
+}
