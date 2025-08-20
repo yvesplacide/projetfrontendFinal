@@ -438,9 +438,7 @@ html, body {
     position: relative;
     
 }
-.auth-card.register-card {
-    padding-top: 11rem;
-}
+
 /* Assurer que le formulaire soit bien positionné */
 form {
     position: relative;
@@ -459,6 +457,9 @@ form {
         width: 40px;
         height: 40px;
         font-size: 1.2rem;
+    }
+    .auth-card.register-card {
+        padding-top: 11rem;
     }
     
     /* Ajuster l'espacement du header pour éviter le chevauchement */
@@ -550,6 +551,9 @@ form {
     .form-row-3col {
         flex-direction: column;
         gap: 0;
+    }
+    .auth-card.register-card {
+        padding-top: 11rem;
     }
 }
 
