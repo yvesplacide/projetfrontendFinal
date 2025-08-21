@@ -205,6 +205,9 @@ html, body {
     .auth-container {
         padding: 10px;
     }
+    .auth-card.register-card {
+        padding-top: 11rem;
+    }
     
     .auth-card {
         max-width: 95vw;
@@ -421,6 +424,9 @@ html, body {
         background-color: rgba(255, 244, 91, 0.25);
         border-color: rgba(255, 244, 91, 0.6);
         transform: translateX(-2px);
+    }
+    .auth-card.register-card {
+        padding-top: 11rem;
     }
 }
 
