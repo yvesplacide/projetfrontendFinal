@@ -226,7 +226,7 @@ function AuthPage() {
                 </div>
 
                 <div className="form-buttons">
-                    <button type="submit" className="btn primary-btn" disabled={isLoading}>
+                    <button type="submit" className="btn primary-btn signup-btn" disabled={isLoading}>
                         {isLoading ? (
                             <span className="button-loader">
                                 <span className="loader"></span>

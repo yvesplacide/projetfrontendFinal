@@ -251,6 +251,9 @@ html, body {
         padding: 10px 12px;
         font-size: 0.9rem;
     }
+    .auth-card.register-card {
+        padding-top: 11rem;
+    }
     
     .btn {
         padding: 10px 14px;
@@ -277,6 +280,9 @@ html, body {
     .btn {
         padding: 8px 12px;
         font-size: 0.85rem;
+    }
+    .auth-card.register-card {
+        padding-top: 11rem;
     }
 }
 
