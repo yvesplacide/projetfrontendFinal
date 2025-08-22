@@ -7,9 +7,8 @@ import { toast } from 'react-toastify';
 import { IoArrowBack } from 'react-icons/io5';
 import '../styles/Auth.css'; // Import du nouveau CSS
 
-
 function AuthPage() {
-    const [searchParams] = useSearchParams();
+    const [searchParams, setSearchParams] = useSearchParams();
     const [isRegistering, setIsRegistering] = useState(searchParams.get('mode') === 'register');
     const [registrationStep, setRegistrationStep] = useState(1);
     const [isLoading, setIsLoading] = useState(false);
@@ -17,6 +16,16 @@ function AuthPage() {
     const { user, login, register: authRegister } = useAuth(); // Renomme register du context en authRegister
     const navigate = useNavigate();
     const [selectedRole, setSelectedRole] = useState('');
+
+    // Synchroniser l'état avec l'URL
+    useEffect(() => {
+        const mode = searchParams.get('mode');
+        if (mode === 'register') {
+            setIsRegistering(true);
+        } else if (mode === 'login') {
+            setIsRegistering(false);
+        }
+    }, [searchParams]);
 
     // Réinitialiser le formulaire quand l'utilisateur se déconnecte
     useEffect(() => {
@@ -49,6 +58,19 @@ function AuthPage() {
         }
     }, [user, navigate]);
 
+    // Fonction pour basculer entre les modes
+    const toggleMode = (newMode) => {
+        setIsRegistering(newMode === 'register');
+        setRegistrationStep(1);
+        reset();
+        
+        // Mettre à jour l'URL
+        if (newMode === 'register') {
+            setSearchParams({ mode: 'register' });
+        } else {
+            setSearchParams({ mode: 'login' });
+        }
+    };
 
     const onSubmit = async (data) => {
         try {
@@ -249,7 +271,7 @@ function AuthPage() {
                 </div>
                 <div className="auth-header">
                     <h2>{isRegistering ? "Inscription" : "Connexion"}</h2>
-                    {isRegistering && <p></p>}
+                    {isRegistering && <p>Créez votre compte pour commencer</p>}
                 </div>
 
                 <form onSubmit={handleSubmit(onSubmit)}>
@@ -319,11 +341,7 @@ function AuthPage() {
                     <p>
                         {isRegistering ? "Déjà un compte ?" : "Pas encore de compte ?"}
                         <button 
-                            onClick={() => {
-                                setIsRegistering(!isRegistering);
-                                setRegistrationStep(1);
-                                reset();
-                            }} 
+                            onClick={() => toggleMode(isRegistering ? 'login' : 'register')}
                             className="btn secondary-btn"
                             disabled={isLoading}
                         >

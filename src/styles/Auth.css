@@ -732,3 +732,85 @@ form {
         margin-top: 6px;
     }
 } 
+
+/* Centrage des boutons de soumission */
+.form-buttons {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+/* Centrer le bouton de connexion */
+form .btn.primary-btn {
+    display: block;
+    margin: 1.5rem auto 0 auto;
+    width: auto;
+    min-width: 200px;
+    padding: 1rem 2rem;
+}
+
+/* Centrer spécifiquement le bouton de connexion */
+form:not(.form-buttons) .btn.primary-btn {
+    display: block;
+    margin: 1.5rem auto 0 auto;
+    width: auto;
+    min-width: 200px;
+    padding: 1rem 2rem;
+}
+
+.btn.primary-btn {
+    width: auto;
+    min-width: 200px;
+    padding: 1rem 2rem;
+}
+
+/* Ajuster l'espacement du formulaire d'inscription */
+.register-card .form-buttons {
+    margin-top: 1rem;
+}
+
+/* Responsive pour les boutons centrés */
+@media (max-width: 768px) {
+    .btn.primary-btn {
+        min-width: 180px;
+        padding: 0.8rem 1.5rem;
+    }
+    
+    form .btn.primary-btn {
+        margin: 1rem auto 0 auto;
+    }
+    
+    form:not(.form-buttons) .btn.primary-btn {
+        margin: 1rem auto 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn.primary-btn {
+        min-width: 160px;
+        padding: 0.7rem 1.2rem;
+    }
+    
+    form .btn.primary-btn {
+        margin: 0.8rem auto 0 auto;
+    }
+    
+    form:not(.form-buttons) .btn.primary-btn {
+        margin: 0.8rem auto 0 auto;
+    }
+}
+
+@media (max-width: 360px) {
+    .btn.primary-btn {
+        min-width: 140px;
+        padding: 0.6rem 1rem;
+    }
+    
+    form .btn.primary-btn {
+        margin: 0.6rem auto 0 auto;
+    }
+    
+    form:not(.form-buttons) .btn.primary-btn {
+        margin: 0.6rem auto 0 auto;
+    }
+} 
