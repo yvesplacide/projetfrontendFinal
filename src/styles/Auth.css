@@ -735,7 +735,7 @@ form {
 
 /* Centrage des boutons de soumission */
 .form-buttons {
-    margin-top: 1.5rem;
+   
     display: flex;
     justify-content: center;
 }
@@ -765,10 +765,6 @@ form:not(.form-buttons) .btn.primary-btn {
 }
 
 /* Ajuster l'espacement du formulaire d'inscription */
-.register-card .form-buttons {
-    margin-top: 1rem;
-}
-
 /* Responsive pour les boutons centrés */
 @media (max-width: 768px) {
     .btn.primary-btn {
