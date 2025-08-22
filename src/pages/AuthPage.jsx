@@ -230,7 +230,7 @@ function AuthPage() {
                         {isLoading ? (
                             <span className="button-loader">
                                 <span className="loader"></span>
-                                Inscription en cours...
+                                Inscription en cours
                             </span>
                         ) : (
                             "S'inscrire"
@@ -305,7 +305,7 @@ function AuthPage() {
                                 {isLoading ? (
                                     <span className="button-loader">
                                         <span className="loader"></span>
-                                        Connexion en cours...
+                                        Connexion en cours
                                     </span>
                                 ) : (
                                     'Se connecter'
