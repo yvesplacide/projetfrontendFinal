@@ -18,6 +18,7 @@ html, body {
     border-radius: 16px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
     padding: 28px 20px;
+    padding-top: 80px;
     width: 100%;
     max-width: 400px;
     max-height: 98vh;
@@ -424,6 +425,7 @@ html, body {
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         color: rgb(255, 244, 91);
         font-weight: 600;
+        
     }
     
     .back-btn:hover {
@@ -460,7 +462,7 @@ form {
 /* Correction pour mobile - éviter le chevauchement avec les champs */
 @media (max-width: 768px) {
     .auth-card {
-        padding-top: 60px; /* Espace pour le bouton retour */
+        padding-top: 120px; /* Espace pour le bouton retour */
     }
     
     .back-btn {
@@ -469,6 +471,7 @@ form {
         width: 40px;
         height: 40px;
         font-size: 1.2rem;
+        
     }
     .auth-card.register-card {
         padding-top: 11rem;
@@ -565,13 +568,15 @@ form {
         gap: 0;
     }
     .auth-card.register-card {
-        padding-top: 11rem;
+        padding-top: 16rem;
+        margin-top: 10rem;
     }
 }
 
 .register-card {
     padding: 10px 8px;
     max-width: 700px;
+    
 }
 
 .register-card .auth-header h2 {

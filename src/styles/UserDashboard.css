@@ -38,6 +38,7 @@ body {
     padding: 40px;
     max-width: 1600px;
     margin: 0 auto;
+    margin-top: 70px;
     display: flex;
     flex-direction: column;
     gap: 40px;
@@ -832,6 +833,25 @@ body {
     min-width: 200px;
 }
 
+/* Styles spécifiques pour le bouton de téléchargement du récépissé */
+.receipt-info .btn.primary-btn {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: auto !important;
+    word-wrap: break-word;
+    white-space: normal;
+    box-sizing: border-box;
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    text-align: center;
+    margin: 15px 0 0 0;
+    border: none;
+    background: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
 /* Styles pour la prévisualisation du récépissé */
 .receipt-preview {
     margin-top: 20px;
@@ -938,6 +958,19 @@ body {
 
     .modal-content {
         padding: 20px;
+    }
+
+    /* Styles responsives pour le bouton de téléchargement du récépissé */
+    .receipt-info .btn.primary-btn {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: auto !important;
+        padding: 10px 12px;
+        font-size: 0.85rem;
+        word-wrap: break-word;
+        white-space: normal;
+        text-align: center;
+        margin: 15px 0 0 0;
     }
 
     .dashboard-header h2 {
@@ -1239,4 +1272,46 @@ body {
     box-shadow: var(--shadow-lg);
     margin-top: 20px;
     position: relative;
+}
+
+/* Styles pour les petits écrans */
+@media (max-width: 480px) {
+    .modal-content {
+        padding: 0.8rem;
+        margin: 0.3rem;
+        max-width: 98vw;
+    }
+
+    .receipt-info .btn.primary-btn {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: auto !important;
+        padding: 8px 10px;
+        font-size: 0.8rem;
+        word-wrap: break-word;
+        white-space: normal;
+        text-align: center;
+        margin: 15px 0 0 0;
+    }
+}
+
+/* Styles pour les très petits écrans */
+@media (max-width: 360px) {
+    .modal-content {
+        padding: 0.6rem;
+        margin: 0.2rem;
+        max-width: 99vw;
+    }
+
+    .receipt-info .btn.primary-btn {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: auto !important;
+        padding: 6px 8px;
+        font-size: 0.75rem;
+        word-wrap: break-word;
+        white-space: normal;
+        text-align: center;
+        margin: 15px 0 0 0;
+    }
 } 

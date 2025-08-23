@@ -616,10 +616,39 @@ html, body {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .receipt-generator button {
     min-width: 200px;
+    max-width: 100%;
+    width: auto;
+    word-wrap: break-word;
+    white-space: normal;
+    box-sizing: border-box;
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* Styles spécifiques pour le bouton du générateur de récépissé */
+.receipt-generator .btn.primary-btn {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: auto !important;
+    word-wrap: break-word;
+    white-space: normal;
+    box-sizing: border-box;
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    text-align: center;
+    margin: 0;
+    border: none;
+    background: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .receipt-generator .receipt-info {
@@ -1126,6 +1155,50 @@ html, body {
     .stat-card {
         margin-bottom: 15px;
     }
+
+    /* Styles responsives pour les récépissés dans le modal */
+    .modal-content {
+        padding: 1rem;
+        margin: 0.5rem;
+        max-width: 95vw;
+    }
+
+    .receipt-section {
+        padding: 15px;
+        margin-top: 15px;
+    }
+
+    .receipt-actions {
+        padding: 10px;
+    }
+
+    .receipt-generator {
+        width: 100%;
+        align-items: stretch;
+    }
+
+    .receipt-generator button {
+        width: 100%;
+        min-width: auto;
+        max-width: 100%;
+        padding: 10px 12px;
+        font-size: 0.85rem;
+        word-wrap: break-word;
+        white-space: normal;
+        text-align: center;
+    }
+
+    .receipt-generator .btn.primary-btn {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: auto !important;
+        padding: 10px 12px;
+        font-size: 0.85rem;
+        word-wrap: break-word;
+        white-space: normal;
+        text-align: center;
+        margin: 0;
+    }
 }
 
 /* Ajustements pour les écrans très petits */
@@ -1163,6 +1236,76 @@ html, body {
 @media (min-width: 769px) and (max-width: 1024px) {
     .declaration-cards {
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Styles pour les petits écrans */
+@media (max-width: 480px) {
+    .modal-content {
+        padding: 0.8rem;
+        margin: 0.3rem;
+        max-width: 98vw;
+    }
+
+    .receipt-section {
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+    .receipt-actions {
+        padding: 8px;
+    }
+
+    .receipt-generator button {
+        padding: 8px 10px;
+        font-size: 0.8rem;
+    }
+
+    .receipt-generator .btn.primary-btn {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: auto !important;
+        padding: 8px 10px;
+        font-size: 0.8rem;
+        word-wrap: break-word;
+        white-space: normal;
+        text-align: center;
+        margin: 0;
+    }
+}
+
+/* Styles pour les très petits écrans */
+@media (max-width: 360px) {
+    .modal-content {
+        padding: 0.6rem;
+        margin: 0.2rem;
+        max-width: 99vw;
+    }
+
+    .receipt-section {
+        padding: 8px;
+        margin-top: 8px;
+    }
+
+    .receipt-actions {
+        padding: 6px;
+    }
+
+    .receipt-generator button {
+        padding: 6px 8px;
+        font-size: 0.75rem;
+    }
+
+    .receipt-generator .btn.primary-btn {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: auto !important;
+        padding: 6px 8px;
+        font-size: 0.75rem;
+        word-wrap: break-word;
+        white-space: normal;
+        text-align: center;
+        margin: 0;
     }
 }
 
