@@ -13,6 +13,7 @@ html, body {
     min-height: calc(100vh - 70px); /* Hauteur totale moins le header */
     padding: 0;
     margin: 0;
+    margin-top: 70px; /* Espace pour la navbar fixe */
     max-width: none;
     overflow-x: hidden;
     position: relative;
@@ -33,6 +34,13 @@ html, body {
     overflow-y: auto;
     overflow-x: hidden;
     z-index: 1000;
+    /* Assurer que la sidebar reste figée */
+    will-change: transform;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    /* Améliorer la performance sur mobile */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .commissariat-info {
@@ -131,6 +139,7 @@ html, body {
 .dashboard-content {
     flex: 1;
     margin-left: 280px;
+    margin-top: 40px; /* Plus d'espace pour éviter que le contenu soit caché par la sidebar */
     padding: 25px;
     background: transparent;
     position: relative;
@@ -144,6 +153,7 @@ html, body {
     font-size: 1.6rem;
     font-weight: 600;
     margin-bottom: 15px;
+    margin-top: 20px; /* Espace supplémentaire pour le titre */
     padding: 0;
     background: none;
     border: none;
@@ -484,19 +494,27 @@ html, body {
 @media (max-width: 768px) {
     .dashboard.commissariat-dashboard {
         flex-direction: column;
+        margin-top: 70px; /* Espace pour la navbar fixe */
     }
 
     .sidebar {
         width: 100%;
         height: auto;
-        position: relative;
-        top: 0;
+        position: fixed;
+        top: 70px; /* Positionner sous la navbar */
+        left: 0;
+        right: 0;
+        z-index: 999;
+        background-color: rgb(27, 19, 57);
+        padding: 15px 0;
     }
 
     .dashboard-content {
         margin-left: 0;
+        margin-top: 150px; /* Plus d'espace pour la sidebar fixe et éviter le chevauchement */
         padding: 20px;
     }
+}
 
     .declaration-cards {
         grid-template-columns: 1fr;
@@ -1107,6 +1125,37 @@ html, body {
 
     .stat-card {
         margin-bottom: 15px;
+    }
+}
+
+/* Ajustements pour les écrans très petits */
+@media (max-width: 480px) {
+    .dashboard.commissariat-dashboard {
+        margin-top: 55px; /* Ajuster pour la hauteur de navbar mobile */
+    }
+
+    .sidebar {
+        top: 55px; /* Ajuster pour la hauteur de navbar mobile */
+    }
+
+    .dashboard-content {
+        margin-top: 140px; /* Plus d'espace pour éviter le chevauchement */
+        padding: 15px;
+    }
+}
+
+@media (max-width: 360px) {
+    .dashboard.commissariat-dashboard {
+        margin-top: 50px;
+    }
+
+    .sidebar {
+        top: 50px;
+    }
+
+    .dashboard-content {
+        margin-top: 130px; /* Plus d'espace pour éviter le chevauchement */
+        padding: 10px;
     }
 }
 
