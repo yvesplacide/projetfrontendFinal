@@ -2,11 +2,16 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
+    box-sizing: border-box;
+    padding-bottom: 3rem; /* éviter chevauchement en bas */
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .page-header {
     text-align: center;
     margin-bottom: 3rem;
+    scroll-margin-top: 90px; /* compenser le header fixe lors des ancres */
 }
 
 .page-header h2 {
@@ -27,6 +32,10 @@
     padding: 2rem;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-md);
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .declaration-form-container h3 {
@@ -39,6 +48,10 @@
 .declaration-form {
     max-width: 800px;
     margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .form-group {
@@ -119,6 +132,11 @@ textarea.form-control {
 .btn.primary-btn {
     display: block;
     width: 100%;
+    max-width: 100%;
+    min-width: 0; /* annule tout min-width global éventuel */
+    box-sizing: border-box;
+    white-space: normal;
+    overflow-wrap: anywhere;
     padding: 1rem;
     background-color: var(--primary-color);
     color: white;
@@ -131,6 +149,18 @@ textarea.form-control {
     margin-top: 2rem;
 }
 
+/* Surcharges spécifiques à la page pour garantir la responsivité du bouton */
+.new-declaration-page .btn.primary-btn {
+    width: auto; /* centré et s'adapte au contenu/containeur */
+    max-width: 100%;
+    min-width: 0 !important; /* neutralise les règles génériques (.btn.primary-btn) d'autres fichiers */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto; /* centrage horizontal */
+    margin-right: auto; /* centrage horizontal */
+}
+
 .btn.primary-btn:hover {
     background-color: var(--primary-dark);
     transform: translateY(-2px);
@@ -140,6 +170,8 @@ textarea.form-control {
 @media (max-width: 768px) {
     .new-declaration-page {
         padding: 1rem;
+        padding-top: 6.5rem; /* Décalage sous la navbar fixe */
+        padding-bottom: 3rem;
     }
 
     .page-header h2 {
@@ -153,4 +185,40 @@ textarea.form-control {
     .declaration-form-container {
         padding: 1.5rem;
     }
+    .btn.primary-btn {
+        font-size: 1rem;
+        padding: 0.9rem;
+    }
+    .page-header {
+        scroll-margin-top: 100px;
+    }
 } 
+
+/* Assurer la visibilité sous la navbar sur très petits écrans */
+@media (max-width: 480px) {
+    .new-declaration-page {
+        padding-top: 6rem;
+        padding-bottom: 3rem;
+    }
+    .page-header {
+        scroll-margin-top: 95px;
+    }
+    .btn.primary-btn {
+        font-size: 0.95rem;
+        padding: 0.85rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .new-declaration-page {
+        padding-top: 5.5rem;
+        padding-bottom: 3rem;
+    }
+    .page-header {
+        scroll-margin-top: 90px;
+    }
+    .btn.primary-btn {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+}

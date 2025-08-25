@@ -50,21 +50,21 @@ function Header() {
                 <Link to="/user-dashboard" onClick={closeMobileMenu}>Mon Tableau de Bord</Link>
                 <Link to="/declaration/new" className="new-declaration-link" onClick={closeMobileMenu}>Nouvelle déclaration</Link>
                 <span className="user-info">Bienvenue, {user.firstName} ({user.role})</span>
-                <button onClick={handleLogout} className="btn text-btn header-logout-btn">Déconnexion</button>
+                <button onClick={handleLogout} className="btn text-btn header-logout-btn">déconnexion</button>
               </div>
             )}
             {user.role === 'commissariat_agent' && (
               <div className="nav-links-container">
                 <Link to="/commissariat-dashboard" onClick={closeMobileMenu}>Gérer les Déclarations</Link>
                 <span className="user-info">Bienvenue, {user.firstName} ({user.role})</span>
-                <button onClick={handleLogout} className="btn text-btn header-logout-btn">Déconnexion</button>
+                <button onClick={handleLogout} className="btn text-btn header-logout-btn">déconnexion</button>
               </div>
             )}
             {user.role === 'admin' && (
               <div className="nav-links-container">
                 <Link to="/admin-dashboard" onClick={closeMobileMenu}>Administration</Link>
                 <span className="user-info">Bienvenue, {user.firstName} ({user.role})</span>
-                <button onClick={handleLogout} className="btn text-btn header-logout-btn">Déconnexion</button>
+                <button onClick={handleLogout} className="btn text-btn header-logout-btn">déconnexion</button>
               </div>
             )}
 
@@ -72,7 +72,7 @@ function Header() {
             {user.role !== 'commissariat_agent' && user.role !== 'user' && user.role !== 'admin' && (
               <div className="nav-links-container">
                 <span className="user-info">Bienvenue, {user.firstName} ({user.role})</span>
-                <button onClick={handleLogout} className="btn text-btn header-logout-btn">Déconnexion</button>
+                <button onClick={handleLogout} className="btn text-btn header-logout-btn">déconnexion</button>
               </div>
             )}
           </>
