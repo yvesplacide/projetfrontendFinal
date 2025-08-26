@@ -143,7 +143,7 @@ nav a i {
     white-space: nowrap;
     font-size: 0.75rem;
     margin-left: 1rem;
-    text-transform: none; /* autorise les minuscules */
+    text-transform: capitalize; /* Première lettre en majuscule */
     letter-spacing: 0.5px;
 }
 

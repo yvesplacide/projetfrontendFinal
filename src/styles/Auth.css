@@ -754,14 +754,6 @@ form .btn.primary-btn {
     padding: 1rem 2rem;
 }
 
-/* Centrer spécifiquement le bouton de connexion */
-form:not(.form-buttons) .btn.primary-btn {
-    display: block;
-    margin: 1.5rem auto 0 auto;
-    width: auto;
-    min-width: 200px;
-    padding: 1rem 2rem;
-}
 
 .btn.primary-btn {
     width: auto;
