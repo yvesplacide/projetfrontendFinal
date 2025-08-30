@@ -351,18 +351,7 @@ body {
 /* Bouton de soumission */
 
 
-.btn.primary-btn:hover {
-    transform: translateY(-4px) !important;
-    box-shadow: var(--shadow-lg) !important;
-    background: linear-gradient(135deg, rgb(255, 235, 59) 0%, rgb(255, 244, 91) 100%) !important;
-}
-
-.btn.primary-btn:disabled {
-    opacity: 0.7 !important;
-    cursor: not-allowed !important;
-    transform: none !important;
-    background: rgba(108, 117, 125, 0.9) !important;
-}
+/* Hover/disabled styles consolidated later in file */
 
 /* Responsive design */
 @media (max-width: 768px) {
@@ -546,9 +535,7 @@ body {
     margin-bottom: 0.8rem;
 }
 
-.photos-section {
-    margin-top: 1rem;
-}
+/* Remove duplicate; keep single definition later */
 
 .photos-section h5 {
     color: var(--primary-color);
@@ -997,14 +984,7 @@ body {
     }
 }
 
-.modal-footer {
-    display: flex;
-    justify-content: flex-end;
-    gap: 0.8rem;
-    margin-top: 10px;
-    padding-top: 10px;
-    border-top: 1px solid var(--border-color);
-}
+/* Removed duplicate modal-footer variant (use the consolidated one below) */
 
 .modal-footer .btn {
     min-width: 150px;
